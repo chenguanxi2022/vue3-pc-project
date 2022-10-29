@@ -1,8 +1,11 @@
 <template>
   <!-- 一级路由 -->
-  <router-view></router-view>
+  <RouterView></RouterView>
 </template>
 
-<script setup></script>
+<script setup>
+import { RouterView } from 'vue-router'
+
+</script>
 
 <style scoped></style>

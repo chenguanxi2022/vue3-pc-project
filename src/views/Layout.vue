@@ -4,7 +4,9 @@
   <appTopnav />
 </nav>
 <!-- 头部组件 -->
-<header>头部组件</header>
+<header>
+  <appHeader />
+</header>
 <!-- 内容容器 -->
 <main>
   <!-- 二级路由 -->
@@ -16,6 +18,7 @@
 
 <script setup>
 import appTopnav from '@/components/app-topnav.vue'
+import appHeader from '@/components/app-header.vue'
 </script>
 
 <style scoped>

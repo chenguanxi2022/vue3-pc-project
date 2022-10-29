@@ -15,7 +15,7 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       require('unplugin-auto-import/webpack')({
-        imports: ['vue', 'vue-router'],
+        imports: ['vue'],
         eslintrc: {
           enabled: true
         }
