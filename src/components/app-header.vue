@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <div class="container">
-      <h1 class="logo"><RouterLink to="/">笑脸</RouterLink>
+      <h1 class="logo"><RouterLink to="/">#Slact</RouterLink>
       </h1>
       <ul class="navs">
         <li class="home"><RouterLink to="/">首页</RouterLink></li>

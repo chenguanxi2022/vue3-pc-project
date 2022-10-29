@@ -13,12 +13,15 @@
   <router-view></router-view>
 </main>
 <!-- 底部组件 -->
-<footer>底部组件</footer>
+<footer>
+  <appFooter></appFooter>
+</footer>
 </template>
 
 <script setup>
 import appTopnav from '@/components/app-topnav.vue'
 import appHeader from '@/components/app-header.vue'
+import appFooter from '@/components/app-footer.vue'
 </script>
 
 <style scoped>
