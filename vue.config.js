@@ -11,5 +11,15 @@ module.exports = defineConfig({
         path.join(__dirname, './src/assets/styles/mixins.less')
       ]
     }
+  },
+  configureWebpack: {
+    plugins: [
+      require('unplugin-auto-import/webpack')({
+        imports: ['vue', 'vue-router'],
+        eslintrc: {
+          enabled: true
+        }
+      })
+    ]
   }
 })
