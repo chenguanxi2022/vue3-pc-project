@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     Home Page
   </div>
 </template>
@@ -7,6 +7,9 @@
 <script setup>
 </script>
 
-<style scoped>
-
+<style scoped lang="less">
+.container {
+  .hoverShadow();
+  color: @xtxColor;
+}
 </style>
