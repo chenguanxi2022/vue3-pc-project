@@ -1,14 +1,15 @@
 <template>
-  <!-- 修改数据。测试是否持久化 -->
   <div>
-    App{{$store.state.user.profile.account}}
-    <button @click="$store.commit('user/setUser',{account:'zhousg'})">设置用户信息</button>
+    App
+    <button @click="fn">测试request工具函数</button>
   </div>
 </template>
 
 <script setup>
-import { } from 'vue'
-
+import request from '@/utils/request'
+const fn = () => {
+  request('/member/profile', 'get', { a: 10 })
+}
 </script>
 
 <style scoped></style>
