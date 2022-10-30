@@ -47,6 +47,7 @@ pluginOptions: {
 - forEach()：修改原来数组，并无返回值
 
 ## 6.`@vueuse/core`包，封装了常见的一些交互逻辑
+> useWindowScroll() 是@vueuse/core提供的api可返回当前页面滚动时候蜷曲的距离。x横向，y纵向
 `npm i @vueuse/core@4.9.0`
 
 ## 7.

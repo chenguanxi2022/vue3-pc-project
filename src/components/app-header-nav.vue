@@ -49,8 +49,8 @@ const hidden = (item) => {
     }
     &:hover {
       > a {
-        color: @xtxColor;
-        border-bottom: 1px solid @xtxColor;
+        color: @warnColor;
+        border-bottom: 1px solid @warnColor;
       }
       // > .layer {
       //   height: 132px;
@@ -92,7 +92,7 @@ const hidden = (item) => {
       }
       &:hover {
         p {
-          color: @xtxColor;
+          color: @warnColor;
         }
       }
     }

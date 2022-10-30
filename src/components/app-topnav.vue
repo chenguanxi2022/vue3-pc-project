@@ -47,7 +47,7 @@ const profile = computed(() => {
           margin-right: 2px;
         }
         &:hover {
-        color:@xtxColor;
+        color:@warnColor;
         }
       }
       ~ li {

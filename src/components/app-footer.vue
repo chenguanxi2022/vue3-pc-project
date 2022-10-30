@@ -110,7 +110,7 @@
           }
           &:hover {
             .iconfont {
-              color:@xtxColor;
+              color:@warnColor;
             }
           }
           &:last-child {
@@ -139,7 +139,7 @@
             margin-top: 5px;
             color: #fff;
             border-radius: 2px;
-            background-color: @xtxColor;
+            background-color: @warnColor;
           }
         }
         .hotline {
@@ -182,7 +182,7 @@
         text-shadow: 0 0 1px #333;
       }
       &:hover {
-        color: @xtxColor;
+        color: @warnColor;
       }
     }
   }
@@ -203,7 +203,7 @@
         border-right: none;
       }
       &:hover {
-        color: @xtxColor;
+        color: @warnColor;
       }
     }
   }
