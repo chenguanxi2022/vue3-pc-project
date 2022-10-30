@@ -46,4 +46,7 @@ pluginOptions: {
 - map：得到一个新的数组并返回
 - forEach()：修改原来数组，并无返回值
 
-## 6.
+## 6.`@vueuse/core`包，封装了常见的一些交互逻辑
+`npm i @vueuse/core@4.9.0`
+
+## 7.

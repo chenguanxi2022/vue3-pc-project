@@ -12,14 +12,15 @@
 </template>
 
 <script setup>
+import { useWindowScroll } from '@vueuse/core'
 import appHeaderNav from '@/components/app-header-nav.vue'
-const y = ref(0)
-onMounted(() => {
-  window.onscroll = () => {
-    const scrollTop = document.documentElement.scrollTop
-    y.value = scrollTop
-  }
-})
+const { y } = useWindowScroll()
+// onMounted(() => {
+//   window.onscroll = () => {
+//     const scrollTop = document.documentElement.scrollTop
+//     y.value = scrollTop
+//   }
+// })
 </script>
 
 <style scoped lang='less'>
