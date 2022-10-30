@@ -6,6 +6,7 @@
 <!-- 头部组件 -->
 <header>
   <appHeader />
+  <appHeaderSticky/>
 </header>
 <!-- 内容容器 -->
 <main>
@@ -23,6 +24,7 @@ import { useStore } from 'vuex'
 import appTopnav from '@/components/app-topnav.vue'
 import appHeader from '@/components/app-header.vue'
 import appFooter from '@/components/app-footer.vue'
+import appHeaderSticky from '@/components/app-header-sticky.vue'
 const store = useStore()
 store.dispatch('category/getList')
 </script>
