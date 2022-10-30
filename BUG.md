@@ -42,4 +42,8 @@ pluginOptions: {
   },
 ```
 
-## 5.
+## 5.forEach与map
+- map：得到一个新的数组并返回
+- forEach()：修改原来数组，并无返回值
+
+## 6.
