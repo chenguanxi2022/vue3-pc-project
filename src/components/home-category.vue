@@ -1,24 +1,38 @@
 <template>
-  <div class='home-category'>
+  <div class='home-category' @mouseleave="categoryId=null">
     <ul class="menu">
-      <li v-for="item in menuList" :key="item.id" @mouseenter="categoryId=item.id">
-        <RouterLink to="`/category/${item.id}`">{{item.name}}</RouterLink>
+      <li v-for="item in menuList" :key="item.id" @mouseenter="categoryId=item.id" :class="{active:categoryId===item.id}">
+        <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         <template v-if="item.children">
-          <RouterLink to="`/category/sub/${sub.id}`" v-for="sub in item.children" :key="sub.id">{{sub.name}}</RouterLink>
+          <RouterLink :to="`/category/sub/${sub.id}`" v-for="sub in item.children" :key="sub.id">{{sub.name}}</RouterLink>
         </template>
       </li>
     </ul>
     <!-- 弹层 -->
     <div class="layer">
-      <h4>分类推荐<small>根据您的购买或浏览记录推荐</small></h4>
+      <h4 v-if="currCategory">{{currCategory.id==='brand'?'品牌':'分类'}}推荐   <small>根据您的购买或浏览记录推荐</small></h4>
+      <!-- 商品 -->
       <ul v-if="currCategory && currCategory.goods && currCategory.goods.length">
         <li v-for="item in currCategory.goods" :key="item.id">
           <RouterLink to="/">
-            <img :src="item.picture" alt="">
+            <img :src="item.picture">
             <div class="info">
               <p class="name ellipsis-2">{{item.name}}</p>
               <p class="desc ellipsis">{{item.desc}}</p>
               <p class="price"><i>¥</i>{{item.price}}</p>
+            </div>
+          </RouterLink>
+        </li>
+      </ul>
+      <!-- 品牌 -->
+      <ul v-if="currCategory && currCategory.brands && currCategory.brands.length">
+        <li class="brand" v-for="item in currCategory.brands" :key="item.id">
+          <RouterLink to="/">
+            <img :src="item.picture" alt="">
+            <div class="info">
+              <p class="place"><i class="iconfont icon-dingwei"></i>{{item.place}}</p>
+              <p class="name ellipsis">{{item.name}}</p>
+              <p class="desc ellipsis-2">{{item.desc}}</p>
             </div>
           </RouterLink>
         </li>
@@ -29,6 +43,7 @@
 
 <script setup>
 import { useStore } from 'vuex'
+import { findBrand } from '@/api/home'
 // 1. 获取vuex的一级分类，并且只需要两个二级分类
 // 2. 需要在组件内部，定义一个品牌数据
 // 3. 根据vuex的分类数据和组件中定义品牌数据，得到左侧分类完整数据(9分类+1品牌)数组
@@ -36,9 +51,12 @@ import { useStore } from 'vuex'
 const brand = reactive({
   id: 'brand',
   name: '品牌',
-  children: [{ id: 'brand-children', name: '品牌推荐' }]
+  children: [{ id: 'brand-children', name: '品牌推荐' }],
+  // 品牌列表
+  brands: []
 })
 const store = useStore()
+// 左侧分类
 const menuList = computed(() => {
   const list = store.state.category.list.map(item => {
     return {
@@ -51,10 +69,17 @@ const menuList = computed(() => {
   list.push(brand)
   return list
 })
-// 获取当前分类逻辑
+
+// 得到弹出层的推荐商品数据
 const categoryId = ref(null)
 const currCategory = computed(() => {
   return menuList.value.find(item => item.id === categoryId.value)
+})
+
+// 获取品牌数据
+onMounted(async () => {
+  const { result } = await findBrand()
+  brand.brands = result
 })
 </script>
 
@@ -70,7 +95,7 @@ const currCategory = computed(() => {
       padding-left: 40px;
       height: 50px;
       line-height: 50px;
-      &:hover {
+      &:hover,&.active {
         background: @warnColor;
       }
       a {
@@ -145,6 +170,24 @@ const currCategory = computed(() => {
               i {
                 font-size: 16px;
               }
+            }
+          }
+        }
+      }
+      li.brand {
+        height: 180px;
+        a {
+          align-items: flex-start;
+          img {
+            width: 120px;
+            height: 160px;
+          }
+          .info {
+            p {
+              margin-top: 8px;
+            }
+            .place {
+              color: #999;
             }
           }
         }

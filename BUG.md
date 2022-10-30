@@ -70,3 +70,7 @@ pluginOptions: {
   -webkit-box-orient: vertical;
 }
 ```
+## 8.find() 和 filter() 区别
+- find：返回测试通过的第一个元素；如果无，返回`undefined`
+- filter：返回测试通过的所有元素的新数组；如果无，返回一个空数组
+
