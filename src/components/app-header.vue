@@ -30,6 +30,8 @@ import appHeaderNav from '@/components/app-header-nav.vue'
     align-items: center;
     .logo {
       width: 200px;
+      margin-bottom: 15px;
+      margin-left: 5px;
       a {
         display: block;
         height: 132px;

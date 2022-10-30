@@ -37,6 +37,7 @@ const hidden = (item) => {
   justify-content: space-between;
   position: relative;
   padding-left: 40px;
+  z-index: 998;
   > li {
     margin-right: 40px;
     width: 38px;

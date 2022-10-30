@@ -50,4 +50,23 @@ pluginOptions: {
 > useWindowScroll() 是@vueuse/core提供的api可返回当前页面滚动时候蜷曲的距离。x横向，y纵向
 `npm i @vueuse/core@4.9.0`
 
-## 7.
+## 7.任意多行文本超出省略的兼容性解决方案
+1. 单行文本超出省略（兼容性高）
+```css
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+```
+2. 多行文本超出省略（Chrome）
+```css
+/* 以两行为例 */
+.ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+```
