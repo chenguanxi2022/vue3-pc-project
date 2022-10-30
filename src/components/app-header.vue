@@ -3,17 +3,8 @@
     <div class="container">
       <h1 class="logo"><RouterLink to="/">#Slact</RouterLink>
       </h1>
-      <ul class="navs">
-        <li class="home"><RouterLink to="/">首页</RouterLink></li>
-        <li><a href="#">居家</a></li>
-        <li><a href="#">美食</a></li>
-        <li><a href="#">复试</a></li>
-        <li><a href="#">母婴</a></li>
-        <li><a href="#">个护</a></li>
-        <li><a href="#">严选</a></li>
-        <li><a href="#">数码</a></li>
-        <li><a href="#">运动</a></li>
-      </ul>
+      <!-- 抽离成组件 -->
+      <appHeaderNav/>
       <div class="search">
         <i class="iconfont icon-search"></i>
         <input type="text" placeholder="搜索">
@@ -28,7 +19,7 @@
 </template>
 
 <script setup>
-
+import appHeaderNav from '@/components/app-header-nav.vue'
 </script>
 
 <style scoped lang="less">
@@ -46,29 +37,6 @@
         font-size: 0px;
         background: url('../assets/images/logo.jpg') no-repeat center 18px / contain;
         border-radius: 35%;
-      }
-    }
-    .navs {
-      width: 820px;
-      display: flex;
-      justify-content: space-between;
-      padding-left: 40px;
-      li {
-        margin-right: 40px;
-        width: 38px;
-        text-align: center;
-        a {
-          font-size: 16px;
-          line-height: 32px;
-          height: 32px;
-          display: inline-block;
-        }
-        &:hover {
-          a {
-            color: @xtxColor;
-            border-bottom: 1px solid @xtxColor;
-          }
-        }
       }
     }
     .search {
