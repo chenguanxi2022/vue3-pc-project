@@ -1,30 +1,27 @@
 <template>
   <ul class="app-header-nav">
     <li class="home"><RouterLink to="/">首页</RouterLink></li>
-    <li><a href="#">居家</a></li>
-    <li><a href="#">美食</a>
+    <li v-for="item in list" :key="item.id"><RouterLink to="/">{{item.name}}</RouterLink>
       <div class="layer">
         <ul>
-          <li v-for="i in 10" :key="i">
-            <a href="#">
-              <img src="https://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/img/category%20(4).png">
-              <p>肉铺</p>
-            </a>
+          <li v-for="sub in item.children" :key="sub.id">
+            <RouterLink  to="/">
+              <img :src="sub.picture">
+              <p>{{sub.name}}</p>
+            </RouterLink>
           </li>
         </ul>
       </div>
     </li>
-    <li><a href="#">复试</a></li>
-    <li><a href="#">母婴</a></li>
-    <li><a href="#">个护</a></li>
-    <li><a href="#">严选</a></li>
-    <li><a href="#">数码</a></li>
-    <li><a href="#">运动</a></li>
   </ul>
 </template>
 
 <script setup>
-
+import { useStore } from 'vuex'
+const store = useStore()
+const list = computed(() => {
+  return store.state.category.list
+})
 </script>
 
 <style scoped lang="less">
@@ -32,6 +29,7 @@
   width: 820px;
   display: flex;
   justify-content: space-between;
+  position: relative;
   padding-left: 40px;
   > li {
     margin-right: 40px;
@@ -48,7 +46,7 @@
         color: @xtxColor;
         border-bottom: 1px solid @xtxColor;
       }
-      .layer {
+      > .layer {
         height: 132px;
         opacity: 1;
       }

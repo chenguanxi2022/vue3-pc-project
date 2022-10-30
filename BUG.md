@@ -25,4 +25,21 @@ extends: [
   './.eslintrc-auto-import.json'
 ]
 ```
+## 4.less变量和混入自动导入
+- 使用vuecli的style-resources-loader插件来完成自动注入到每个vue组件中的style标签中
+- `vue add style-resources-loader`
+- `vue.config.js`中，配置
+```js
+const path = require('path')
+pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [
+        path.join(__dirname, './src/assets/styles/variables.less'),
+        path.join(__dirname, './src/assets/styles/mixins.less')
+      ]
+    }
+  },
+```
 
+## 5.

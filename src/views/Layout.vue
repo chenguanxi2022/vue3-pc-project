@@ -19,9 +19,12 @@
 </template>
 
 <script setup>
+import { useStore } from 'vuex'
 import appTopnav from '@/components/app-topnav.vue'
 import appHeader from '@/components/app-header.vue'
 import appFooter from '@/components/app-footer.vue'
+const store = useStore()
+store.dispatch('category/getList')
 </script>
 
 <style scoped>
