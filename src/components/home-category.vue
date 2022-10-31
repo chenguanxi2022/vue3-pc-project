@@ -1,16 +1,21 @@
 <template>
   <div class='home-category' @mouseleave="categoryId=null">
+    <!-- 左侧分类 -->
     <ul class="menu">
       <li v-for="item in menuList" :key="item.id" @mouseenter="categoryId=item.id" :class="{active:categoryId===item.id}">
         <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         <template v-if="item.children">
           <RouterLink :to="`/category/sub/${sub.id}`" v-for="sub in item.children" :key="sub.id">{{sub.name}}</RouterLink>
         </template>
+        <span v-else>
+          <SlackSkeleton width="60px" height="18px" style="margin-right: 5px bg=rgba(255,255,255,.2)"/>
+          <SlackSkeleton width="50px" height="18px" bg="rgba(255,255,255,.2)"/>
+        </span>
       </li>
     </ul>
     <!-- 弹层 -->
     <div class="layer">
-      <h4 v-if="currCategory">{{currCategory.id==='brand'?'品牌':'分类'}}推荐   <small>根据您的购买或浏览记录推荐</small></h4>
+      <h4 v-if="currCategory">{{currCategory.id==='brand'?'品牌':'分类'}}推荐 <small>根据您的购买或浏览记录推荐</small></h4>
       <!-- 商品 -->
       <ul v-if="currCategory && currCategory.goods && currCategory.goods.length">
         <li v-for="item in currCategory.goods" :key="item.id">

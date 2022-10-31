@@ -74,3 +74,33 @@ pluginOptions: {
 - find：返回测试通过的第一个元素；如果无，返回`undefined`
 - filter：返回测试通过的所有元素的新数组；如果无，返回一个空数组
 
+## 9.vue3中`setup`语法糖，eslint报错不识别`defineProps`（eslint-plugin-vue版本大于8.0）
+- 在`.eslintrc.js`中
+```js
+env: {
+    node: true,
+    // The Follow config only works with eslint-plugin-vue v8.0.0+
+    'vue/setup-compiler-macros': true
+  },
+```
+## 10.封装一个骨架屏组件
+- `index.js`中代码
+```js
+import SlackSkeleton from './slack-skeleton.vue'
+
+export default {
+  install (app) {
+    // 在app上进行扩展，app提供 component directive 函数
+    // 如果要挂载原型 app.config.globalProperties 方式
+    app.component('SlackSkeleton', SlackSkeleton)
+    // 'SlackSkeleton'为名字，必填（否则为undefined）
+  }
+}
+```
+- `main.js`中代码
+```js
+import ui from './components/library'
+
+createApp(App).use(ui)
+```
+## 11.
