@@ -1,6 +1,6 @@
 <template>
   <div class='home-banner'>
-    <SlackCarousel :sliders="sliders" />
+    <SlackCarousel :sliders="sliders" auto-play/>
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import { findBanner } from '@/api/home'
 const sliders = ref([])
 findBanner().then(data => {
   sliders.value = data.result
-  console.log(sliders)
 })
 </script>
 

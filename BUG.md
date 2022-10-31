@@ -106,4 +106,10 @@ createApp(App).use(ui)
 ## 11.vue样式穿透
 `::v-deep .class{background:#ccc;}`
 
-## 12.
+## 12.组件销毁记得清除定时器
+```vue
+onUnmounted(() => {
+  clearInterval(timer)
+})
+```
+## 13.
