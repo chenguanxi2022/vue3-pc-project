@@ -95,6 +95,11 @@ onMounted(async () => {
   background: rgba(0, 0, 0, .8);
   position: relative;
   z-index: 99;
+  opacity: 0;
+  transition: all .5s linear;
+  &:hover {
+    opacity: 1;
+  }
   .menu {
     li {
       padding-left: 40px;

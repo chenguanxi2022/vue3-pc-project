@@ -8,3 +8,11 @@ import request from '@/utils/request'
 export const findBrand = (limit = 6) => {
   return request('/home/brand', 'GET', { limit })
 }
+
+/**
+ * 获取轮播图图片
+ * @returns Promise
+ */
+export const findBanner = () => {
+  return request('/home/banner', 'GET')
+}

@@ -2,9 +2,9 @@
   <div class="slack-carousel">
     <ul class="carousel-body">
       <!-- 轮播图片 -->
-      <li class="carousel-item fade">
+      <li class="carousel-item" v-for="(item,i) in sliders" :key="item.id" :class="{fade:index===i}">
         <RouterLink to="/">
-          <img src="http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-15/1ba86bcc-ae71-42a3-bc3e-37b662f7f07e.jpg" alt="">
+          <img :src="item.imgUrl" alt="">
         </RouterLink>
       </li>
     </ul>
@@ -14,13 +14,18 @@
     <a href="javascript:;" class="carousel-btn next"><i class="iconfont icon-angle-right"></i></a>
     <!-- 小点 -->
     <div class="carousel-indicator">
-      <span v-for="i in 5" :key="i"></span>
+      <span v-for="(item,i) in sliders" :key="item.id" :class="{active:index===i}"></span>
     </div>
   </div>
 </template>
 
 <script setup>
-
+defineProps({
+  sliders: {
+    type: []
+  }
+})
+const index = ref(0)
 </script>
 
 <style scoped lang='less'>

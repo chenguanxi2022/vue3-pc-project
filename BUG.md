@@ -103,4 +103,7 @@ import ui from './components/library'
 
 createApp(App).use(ui)
 ```
-## 11.
+## 11.vue样式穿透
+`::v-deep .class{background:#ccc;}`
+
+## 12.
