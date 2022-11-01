@@ -2,16 +2,21 @@
   <div class='home-new'>
     <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><SlackMore path="/" /></template>
-      <!-- 面板内容 -->
-      <ul class="goods-list">
-        <li v-for="item in goods" :key="item.id">
-          <RouterLink :to="`/product/${item.id}`">
-            <img :src="item.picture" alt="">
-            <p class="name ellipsis">{{item.name}}</p>
-            <p class="price">&yen;{{item.price}}</p>
-          </RouterLink>
-        </li>
-      </ul>
+      <div style="position:relative;height:406px">
+        <Transition name="fade">
+          <!-- 面板内容 -->
+          <ul v-if="goods.length" class="goods-list">
+            <li v-for="item in goods" :key="item.id">
+              <RouterLink :to="`/product/${item.id}`">
+                <img :src="item.picture" alt="">
+                <p class="name ellipsis">{{item.name}}</p>
+                <p class="price">&yen;{{item.price}}</p>
+              </RouterLink>
+            </li>
+          </ul>
+          <HomeSkeleton bg="#f0f9f4" v-else />
+        </Transition>
+      </div>
     </HomePanel>
   </div>
 </template>
@@ -19,6 +24,7 @@
 <script setup>
 import HomePanel from '@/views/home/components/home-panel.vue'
 import { findNew } from '@/api/home'
+import HomeSkeleton from './home-skeleton.vue'
 const goods = ref([])
 onMounted(async () => {
   const { result } = await findNew()
