@@ -5,6 +5,7 @@
 
 import SlackSkeleton from './slack-skeleton.vue'
 import SlackCarousel from './slack-carousel.vue'
+import SlackMore from './slack-more.vue'
 
 export default {
   install (app) {
@@ -12,5 +13,6 @@ export default {
     // 如果要挂载原型 app.config.globalProperties 方式
     app.component('SlackSkeleton', SlackSkeleton)
     app.component('SlackCarousel', SlackCarousel)
+    app.component('SlackMore', SlackMore)
   }
 }
