@@ -9,12 +9,15 @@
         <HomeBanner/>
       </div>
     </div>
+    <!-- 新鲜好物 -->
+    <HomeNew/>
   </div>
 </template>
 
 <script setup>
 import HomeCategory from '@/views/home/components/home-category.vue'
 import HomeBanner from '@/views/home/components/home-banner.vue'
+import HomeNew from '@/views/home/components/home-new.vue'
 </script>
 
 <style scoped lang="less">
