@@ -2,7 +2,7 @@
   <div class='home-new'>
     <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><SlackMore path="/" /></template>
-      <div style="position:relative;height:406px">
+      <div ref="target" style="position:relative;height:406px">
         <Transition name="fade">
           <!-- 面板内容 -->
           <ul v-if="goods.length" class="goods-list">
@@ -25,11 +25,9 @@
 import HomePanel from '@/views/home/components/home-panel.vue'
 import { findNew } from '@/api/home'
 import HomeSkeleton from './home-skeleton.vue'
-const goods = ref([])
-onMounted(async () => {
-  const { result } = await findNew()
-  goods.value = result
-})
+import { useLazyData } from '@/hooks'
+const { target, result } = useLazyData(findNew)
+const goods = result
 </script>
 
 <style scoped lang='less'>
