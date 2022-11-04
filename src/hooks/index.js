@@ -20,6 +20,10 @@ export const useLazyData = (apiFn) => {
           result.value = data.result
         })
       }
+    },
+    {
+      // threshold 容器和可视区交叉的占比（进入的面积/容器完整面积）取值为（0 - 1）之间，默认比0大，需要滚动较多才能触发进入可视区域
+      threshold: 0
     }
   )
   // 返回 --> 数据（dom，后台数据）

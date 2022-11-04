@@ -1,5 +1,5 @@
 <template>
-  <HomePanel title="热门品牌" sub-title="国际经典 品质保证">
+  <SlackPanel title="热门品牌" sub-title="国际经典 品质保证">
     <template #right>
       <a href="javascript:;" :class="{disabled:index === 0}" @click="toggle(-1)" class="iconfont icon-angle-left prev"></a>
       <a href="javascript:;" :class="{disabled:index === 1}" @click="toggle(1)" class="iconfont icon-angle-right next"></a>
@@ -18,11 +18,10 @@
         </div>
       </Transition>
     </div>
-  </HomePanel>
+  </SlackPanel>
 </template>
 
 <script setup>
-import HomePanel from './home-panel.vue'
 import { useLazyData } from '@/hooks'
 import { findBrand } from '@/api/home'
 // useLazyData 需要的是API函数，如果遇到要传参的情况，自己写函数在函数中调用API

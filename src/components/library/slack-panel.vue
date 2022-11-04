@@ -1,5 +1,5 @@
 <template>
-  <div class='home-panel'>
+  <div class='slack-panel'>
     <div class="container">
       <div class="head">
         <h3>{{title}}<small>{{subTitle}}</small></h3>
@@ -26,7 +26,7 @@ defineProps({
 </script>
 
 <style scoped lang='less'>
-.home-panel {
+.slack-panel {
   background-color: #fff;
   .head {
     padding: 40px 0;

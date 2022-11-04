@@ -1,6 +1,6 @@
 <template>
   <div class='home-new'>
-    <HomePanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
+    <SlackPanel title="新鲜好物" sub-title="新鲜出炉 品质靠谱">
       <template #right><SlackMore path="/" /></template>
       <div ref="target" style="position:relative;height:406px">
         <Transition name="fade">
@@ -17,12 +17,11 @@
           <HomeSkeleton bg="#f0f9f4" v-else />
         </Transition>
       </div>
-    </HomePanel>
+    </SlackPanel>
   </div>
 </template>
 
 <script setup>
-import HomePanel from '@/views/home/components/home-panel.vue'
 import { findNew } from '@/api/home'
 import HomeSkeleton from './home-skeleton.vue'
 import { useLazyData } from '@/hooks'

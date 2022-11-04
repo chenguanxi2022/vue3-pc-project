@@ -6,6 +6,7 @@
 import SlackSkeleton from './slack-skeleton.vue'
 import SlackCarousel from './slack-carousel.vue'
 import SlackMore from './slack-more.vue'
+import SlackPanel from './slack-panel.vue'
 
 export default {
   install (app) {
@@ -14,5 +15,6 @@ export default {
     app.component('SlackSkeleton', SlackSkeleton)
     app.component('SlackCarousel', SlackCarousel)
     app.component('SlackMore', SlackMore)
+    app.component('SlackPanel', SlackPanel)
   }
 }

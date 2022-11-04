@@ -1,5 +1,5 @@
 <template>
-  <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
+  <SlackPanel title="人气推荐" sub-title="人气爆款 不容错过">
     <div ref="target" style="position:relative;height:426px">
       <Transition name="fade">
         <ul class="goods-list" v-if="goods.length">
@@ -14,11 +14,10 @@
         <HomeSkeleton v-else />
       </Transition>
     </div>
-  </HomePanel>
+  </SlackPanel>
 </template>
 
 <script setup>
-import HomePanel from './home-panel.vue'
 import HomeSkeleton from './home-skeleton.vue'
 import { findHot } from '@/api/home'
 import { useLazyData } from '@/hooks'

@@ -32,3 +32,11 @@ export const findNew = () => {
 export const findHot = () => {
   return request('/home/hot', 'GET')
 }
+
+/**
+ * 获取商品区域图片
+ * @returns Promise
+ */
+export const findGoods = () => {
+  return request('/home/goods', 'GET')
+}
