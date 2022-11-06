@@ -7,6 +7,7 @@ import SlackSkeleton from './slack-skeleton.vue'
 import SlackCarousel from './slack-carousel.vue'
 import SlackMore from './slack-more.vue'
 import SlackPanel from './slack-panel.vue'
+import defaultImg from '@/assets/images/masahiro-miyagi-wJgpBEF0e7U-unsplash.jpg'
 
 export default {
   install (app) {
@@ -16,5 +17,34 @@ export default {
     app.component('SlackCarousel', SlackCarousel)
     app.component('SlackMore', SlackMore)
     app.component('SlackPanel', SlackPanel)
+    defineDirective(app)
   }
+}
+
+// 自定义指令
+const defineDirective = (app) => {
+  // 图片懒加载
+  // 先不给 src 值，等到了可视区范围内再赋值
+  app.directive('lazy', {
+    // vue2 监听使用指令的DOM是否创建好，钩子函数：inserted
+    // vue3 监听使用指令的DOM是否创建好（钩子函数和组件中一样），mounted
+    mounted (el, binding) {
+      // IntersectonObserver（WebAPI：观察对象）
+      const observe = new IntersectionObserver(([{ isIntersecting }]) => {
+        if (isIntersecting) {
+          // 停止观察
+          observe.unobserve(el)
+          // 图片加载失败
+          el.onerror = () => {
+            el.src = defaultImg
+          }
+          el.src = binding.value
+        }
+      }, {
+        threshold: 0
+      })
+      // 继续观察
+      observe.observe(el)
+    }
+  })
 }
