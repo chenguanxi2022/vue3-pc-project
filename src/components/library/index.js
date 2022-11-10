@@ -8,6 +8,7 @@ import SlackCarousel from './slack-carousel.vue'
 import SlackMore from './slack-more.vue'
 import SlackPanel from './slack-panel.vue'
 import defaultImg from '@/assets/images/masahiro-miyagi-wJgpBEF0e7U-unsplash.jpg'
+import SlackBread from './slack-bread.vue'
 
 export default {
   install (app) {
@@ -17,6 +18,7 @@ export default {
     app.component('SlackCarousel', SlackCarousel)
     app.component('SlackMore', SlackMore)
     app.component('SlackPanel', SlackPanel)
+    app.component('SlackBread', SlackBread)
     defineDirective(app)
   }
 }
